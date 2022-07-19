@@ -11,12 +11,13 @@ def home():
     )
 
 @app.route("/apipy/<name>")
-def apipy(name):
+def apipy(name, age):
     now = datetime.now()
     formatted_now = now.strftime("%A, %d %B, %Y at %X")
 
     content = [{
         "name": name,
+        "age": age,
         "now_format" : formatted_now,
         "now": now
         }]
