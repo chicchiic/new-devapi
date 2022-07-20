@@ -3,22 +3,21 @@ from flask import Flask, jsonify, render_template
 
 app = Flask(__name__)
 
-@app.route("/")
+@app.route('/')
 def home():
-    return 'Hello world'
+    return "Hello Flask-Heroku"
     return render_template(
         "hello_there.html",
         now=datetime.now,
     )
 
-@app.route("/api/<name>")
-def apipy(name, age):
+@app.route("/api/<name>", methods=['GET'])
+def api(name):
     now = datetime.now()
     formatted_now = now.strftime("%A, %d %B, %Y at %X")
 
     content = [{
         "name": name,
-        "age": age,
         "now_format" : formatted_now,
         "now": now
         }]
