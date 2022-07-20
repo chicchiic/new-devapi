@@ -10,9 +10,12 @@ def home():
         "hello_there.html",
         now=datetime.now,
     )
+@app.route("/api", methods=['GET'])
+def api1():
+    return jsonify('not allow')
 
 @app.route("/api/<name>", methods=['GET'])
-def api(name):
+def api2(name):
     now = datetime.now()
     formatted_now = now.strftime("%A, %d %B, %Y at %X")
 
