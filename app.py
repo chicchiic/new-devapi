@@ -5,12 +5,13 @@ app = Flask(__name__)
 
 @app.route("/")
 def home():
+    return 'Hello world'
     return render_template(
         "hello_there.html",
         now=datetime.now,
     )
 
-@app.route("/apipy/<name>")
+@app.route("/api/<name>")
 def apipy(name, age):
     now = datetime.now()
     formatted_now = now.strftime("%A, %d %B, %Y at %X")
